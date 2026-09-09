@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
+<<<<<<< HEAD
 from app.routers import status, forecast, energy_flow, battery, recommendations, metrics, simulate, auth, planner
+=======
+from app.routers import status, forecast, energy_flow, battery, recommendations, metrics, simulate, auth, table_data
+>>>>>>> 624cb34 (api for dashboard_collection)
 
 app = FastAPI(title=settings.app_name)
 
@@ -14,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
+app.include_router(table_data.router)
 app.include_router(status.router)
 app.include_router(forecast.router)
 app.include_router(energy_flow.router)
